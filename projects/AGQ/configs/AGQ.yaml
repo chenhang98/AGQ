@@ -1,0 +1,27 @@
+SYSTEM:
+  NUM_GPUS: 1
+  NUM_CPUS: 4
+SOLVER:
+  NAME: Adam
+  LR_SCHEDULER_NAME: WarmupCosineLR
+  BASE_LR: 0.0001
+  ITERATION_STEP: 1
+  ITERATION_SAVE: 10000
+  ITERATION_TOTAL: 100000
+  ITERATION_VAL: 10000
+  SAMPLES_PER_BATCH: 2
+MODEL:
+  ARCHITECTURE: AGQ
+  WITH_AFFINITY: True
+  BLOCK_TYPE: residual
+  TARGET_OPT: ["9-1", "2"]     # 9: original label, 2: affinity
+  LOSS_WEIGHT: [[1.0, 0.5], [1.0]]
+  WEIGHT_OPT: [["1", "0"], ["0"]]
+  OUTPUT_ACT: [["none", "sigmoid"], ["sigmoid"]]
+DATASET:
+  OUTPUT_PATH: outputs/AC3-AC4/AGQ
+INFERENCE:
+  OUTPUT_ACT: ["sigmoid", "sigmoid"]
+  OUTPUT_PATH: outputs/AC3-AC4/AGQ/test
+  INPUT_SIZE: [17, 257, 257]
+  OUTPUT_SIZE: [17, 257, 257]
