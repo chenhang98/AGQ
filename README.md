@@ -8,7 +8,7 @@
   <a href="assets/iclr25_poster.pdf"><img src="https://img.shields.io/badge/Poster-yellow.svg" alt="Poster"></a>
 </p>
 
-This is the official repository for ["Efficient Neuron Segmentation in Electron Microscopy by Affinity-Guided Queries"](https://openreview.net/pdf?id=Y0QqruhqIa), an ICLR 2025 paper presenting a novel approach for neuron segmentation in electron microscopy images.
+This is the official repository for ["Efficient Neuron Segmentation in Electron Microscopy by Affinity-Guided Queries"](https://openreview.net/forum?id=Y0QqruhqIa), an ICLR 2025 paper presenting a novel approach for neuron segmentation in electron microscopy images.
 
 ## 📖 Introduction
 
@@ -41,6 +41,29 @@ pip install -r requirements.txt
 ```
 
 This repository is based on [pytorch_connectomics](https://github.com/zudi-lin/pytorch_connectomics). Please refer to [pytorch_connectomics](https://github.com/zudi-lin/pytorch_connectomics) for more details about the underlying framework.
+
+### Dataset Preparation
+
+#### AC3-AC4 Dataset
+
+Download the AC3-AC4 dataset from [dataset](https://github.com/chenhang98/AGQ/releases/tag/dataset) and organize the files as follows:
+
+```bash
+datasets/
+└── AC3-AC4/
+    ├── AC3_inputs.h5        # Test input volume (100×1024×1024)
+    ├── AC3_labels.h5        # Test ground truth labels
+    ├── AC4_train_inputs.h5  # Training input volume
+    ├── AC4_train_labels.h5  # Training ground truth labels
+    ├── AC4_val_inputs.h5    # Validation input volume (not used)
+    └── AC4_val_labels.h5    # Validation ground truth labels (not used)
+```
+
+#### Dataset Specifications
+
+- **Training Data**: AC4 dataset for model training
+- **Test Data**: AC3 dataset for inference and evaluation
+
 
 ### Inference and Evaluation
 
@@ -131,14 +154,9 @@ If you find this project useful in your research, please consider citing:
 
 ```bibtex
 @inproceedings{AGQ,
-  author       = {Hang Chen and
-                  Chufeng Tang and
-                  Xiao Li and
-                  Xiaolin Hu},
-  title        = {Efficient Neuron Segmentation in Electron Microscopy by Affinity-Guided
-                  Queries},
-  booktitle    = {The Thirteenth International Conference on Learning Representations,
-                  {ICLR}},
+  author       = {Hang Chen and Chufeng Tang and Xiao Li and Xiaolin Hu},
+  title        = {Efficient Neuron Segmentation in Electron Microscopy by Affinity-Guided Queries},
+  booktitle    = {The Thirteenth International Conference on Learning Representations, {ICLR}},
   year         = {2025}
 }
 ```
