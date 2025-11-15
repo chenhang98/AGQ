@@ -12,7 +12,10 @@ This is the official repository for ["Efficient Neuron Segmentation in Electron 
 
 ## 📖 Introduction
 
+
 Accurate segmentation of neurons in electron microscopy (EM) images plays a crucial role in understanding the intricate wiring patterns of the brain. Existing automatic neuron segmentation methods rely on traditional clustering algorithms, where affinities are predicted first, and then watershed and post-processing algorithms are applied to yield segmentation results. Due to the nature of watershed algorithm, this paradigm has deficiency in both prediction quality and speed.
+
+![image](assets/overview.png)
 
 Inspired by recent advances in natural image segmentation, we propose to use query-based methods to address the problem because they do not necessitate watershed algorithms. However, we find that directly applying existing query-based methods faces great challenges due to the large memory requirement of the 3D data and considerably different morphology of neurons.
 
@@ -23,7 +26,6 @@ To tackle these challenges, we introduce **affinity-guided queries** and integra
 
 Experiments on benchmark datasets demonstrated that our method achieved better results over state-of-the-art methods with a **2∼3× speedup** in inference.
 
-![image](assets/overview.png)
 
 ## 🚀 Quick Start
 
