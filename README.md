@@ -36,8 +36,14 @@ Experiments on benchmark datasets demonstrated that our method achieved better r
 git clone https://github.com/chenhang98/AGQ.git
 cd AGQ
 
-# Install dependencies
+# Install dependencies 
+conda create -n agq Python==3.8
+conda activate agq
+# install pytorch (assuming CUDA 11.1, refer to https://pytorch.org/get-started/previous-versions for other cuda versions)
+pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirements.txt
+pip install -v -e ./submodules/cremi_python
+pip install -v -e .
 ```
 
 This repository is based on [pytorch_connectomics](https://github.com/zudi-lin/pytorch_connectomics). Please refer to [pytorch_connectomics](https://github.com/zudi-lin/pytorch_connectomics) for more details about the underlying framework.
